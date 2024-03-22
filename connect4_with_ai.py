@@ -371,7 +371,6 @@ def main():
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pygame.draw.rect(screen, WHITE, (0, 0, width, SQUARESIZE))
-                # print(event.pos)
                 # Ask for Player 1 Input
                 if turn == PLAYER:
                     posx = event.pos[0]
@@ -399,7 +398,7 @@ def main():
                 col = random.randint(0, COLUMN_COUNT - 1)
             elif selected_level == 1:
                 print("RULES-BASED MOVE")
-                col = random.randint(0, COLUMN_COUNT - 1)
+                col = pick_best_move(board, AI_PIECE)
             else:
                 print("MINIMAX MOVE")
                 col, _ = minimax(board, 5, -math.inf, math.inf, True)
